@@ -1,34 +1,40 @@
 #include <iostream>
 using namespace std;
 
-class parentClass {
+class parentClass{
 	public:
-	int var1,var2,sum;	
-	parentClass() {
-		var1=10;
-		var2=20;
-		sum=0;
-	}
-	void addFunction() {
-		sum=var1+var2;
-	}
-	~parentClass() {
-		var1=0;
-		var2=0;
-		sum=0;
+	int mulFunction(int var1,int var2) {
+		return var1*var2;
 	}
 };
 
 class childClass: public parentClass{
 	public:
-	void display() {
-		cout<<"Addition is : "<<sum<<"\n";
+	int mulFunction(int var1,int var2) {
+		return var1*var2;
+	}
+	int addFunction(int var1,int var2) {
+		return var1+var2;
+	}
+	double addFunction(double var1,double var2) {
+		return var1+var2;
+	}
+	int addFunction(int var1,int var2,int var3) {
+		return var1+var2+var3;
+	}
+	double addFunction(double var1,double var2,double var3) {
+		return var1+var2+var3;
 	}
 };
 
 int main() {
+	parentClass obj;
 	childClass obj1;
-	obj1.addFunction();
-	obj1.display();
+	cout<<"Multiplication: "<<obj.mulFunction(10,20)<<"\n";
+	cout<<"Multiplication: "<<obj1.mulFunction(10,20)<<"\n";
+	cout<<"Addition: "<<obj1.addFunction(10,20)<<"\n";
+	cout<<"Addition: "<<obj1.addFunction(10.1,20.1)<<"\n";
+	cout<<"Addition: "<<obj1.addFunction(10,20,30)<<"\n";
+	cout<<"Addition: "<<obj1.addFunction(10.1,20.1,30.1)<<"\n";
 	return 0;
 }
