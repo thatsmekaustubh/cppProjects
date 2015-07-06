@@ -1,1 +1,3 @@
-need to add a file for blank repo
+Here under this branch are my projects dealing with networking concepts.
+
+Ex. RPC/RMI
