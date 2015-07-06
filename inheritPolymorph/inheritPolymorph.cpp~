@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+class parentClass {
+	public:
+	int addFunction() {
+		return var1+var2;
+	}
+	float addFunction() {
+		return var1+var2;
+	}
+};
+
+class childClass: public parentClass{
+	long addFunction() {
+		return var1+var2;
+	}
+	double addFunction() {
+		return var1+var2;
+	}
+};
+
+int main() {
+	childClass obj1;
+	obj1.addFunction(10,20);
+	obj1.addFunction(10.01,20.01);
+	obj1.addFunction(100000,200000);
+	obj1.addFunction(100000.01,200000.01);
+	obj1.display();
+	return 0;
+}
