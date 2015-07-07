@@ -1,1 +1,1 @@
-need to add a file for blank repo
+Here in this branch I have demonstrated single level of inheritanc in its simplest form

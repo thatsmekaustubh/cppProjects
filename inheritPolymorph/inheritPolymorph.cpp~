@@ -1,40 +1,53 @@
 #include <iostream>
 using namespace std;
 
-class parentClass{
+class grandParentClass{
+	protected:
+	int var1, var2;
 	public:
-	int mulFunction(int var1,int var2) {
-		return var1*var2;
+	grandParentClass() {
+		var1=0;
+		var2=0;
+		cout<<"Granpa says hi!";
+	}
+	void input() {
+		var1=10;
+		var2=20;
+	}
+};
+
+class parentClass: public grandParentClass{
+	protected:
+	int sum;
+	public:
+	parentClass() {
+		sum=0;
+		cout<<"\nPa says hi!";
+	}
+	void add() {
+		sum=var1+var2;
 	}
 };
 
 class childClass: public parentClass{
+	int avg;
 	public:
-	int mulFunction(int var1,int var2) {
-		return var1*var2;
+	childClass() {
+		avg=0;
+		cout<<"\nYou say hi!";
 	}
-	int addFunction(int var1,int var2) {
-		return var1+var2;
+	void average() {
+		avg=sum/2;
 	}
-	double addFunction(double var1,double var2) {
-		return var1+var2;
-	}
-	int addFunction(int var1,int var2,int var3) {
-		return var1+var2+var3;
-	}
-	double addFunction(double var1,double var2,double var3) {
-		return var1+var2+var3;
+	void display() {
+		cout<<"Average is: "<<avg;
 	}
 };
 
 int main() {
-	parentClass obj;
-	childClass obj1;
-	cout<<obj.mulFunction(10,20)<<"\n";
-	cout<<obj1.mulFunction(10,20)<<"\n";
-	cout<<obj1.addFunction(10,20)<<"\n";
-	cout<<obj1.addFunction(10.1,20.1)<<"\n";
-	cout<<obj1.addFunction(10,20,30)<<"\n";
-	cout<<obj1.addFunction(10.1,20.1,30.1)<<"\n";
+	childClass obj;
+	obj.input();
+	obj.add();
+	obj.average();
 	return 0;
 }
